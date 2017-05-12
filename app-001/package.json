@@ -1,0 +1,24 @@
+{
+  "name": "app-001",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "js/source/app.js",
+  "scripts": {
+    "test": "print('Yes');"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "test-react-app-001"
+  ],
+  "author": "A.Chechel",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
