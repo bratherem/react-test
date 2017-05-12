@@ -1,0 +1,10 @@
+.Rating {
+    display: inline-block;
+}
+.Rating span {
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.RatingOn {
+    color: gold;
+}

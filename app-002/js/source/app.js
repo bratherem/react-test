@@ -46,7 +46,7 @@ ReactDOM.render(
                 This one goes to 11: <Rating max={11} />
             </div>
             <div>
-                Read-only: <Rating readonly={true} defaultValue={4}/>
+                Read-only: <Rating readonly={true} defaultValue={4} />
             </div>
         </div>
     </div>,

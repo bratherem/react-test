@@ -42,13 +42,13 @@ class Rating extends Component {
 
     render() {
         const stars = [];
-        for (let i = 1; i <= this.pros.max; i++) {
+        for (let i = 1; i <= this.props.max; i++) {
             stars.push(<span
                 className={i <= this.state.tmpRating ? 'RatingOn' : null}
                 key={i}
                 onClick={!this.props.readonly && this.setTemp.bind(this, i)}
                 onMouseOver={!this.props.readonly && this.setTemp.bind(this, i)}
-            >&#9734</span>);
+            >&#9734;</span>);
         }
         return (<div
             className={classNames({Rating:true,RatingReadonly:this.props.readonly})}
@@ -67,7 +67,7 @@ Rating.propTypes = {
     max: PropTypes.number
 };
 
-Rating.deafultType = {
+Rating.deafultProps = {
     defaultValue: 0,
     max: 5
 };
