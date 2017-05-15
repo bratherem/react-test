@@ -1,12 +1,11 @@
 'use strict';
 
-import Excel from './components/Excel';
-import Logo from './components/Logo';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from "./components/Button";
-import Suggest from "./components/Suggest";
-import Rating from "./components/Rating";
+import Form from "./components/Form";
+import Actions from "./components/Actions";
+import Dialog from "./components/Dialog";
 
 let headers = localStorage.getItem('headers');
 let data = localStorage.getItem('data');
@@ -18,36 +17,22 @@ if (!headers) {
 
 ReactDOM.render(
     <div>
-        <h1>
-            <Logo/> Welcome to Whinepad!
-        </h1>
+        <h2>Form</h2>
         <div>
-            <Excel headers={headers} initialData={data}/>
+            <Form fields={[
+                {label: 'Rating', type: 'rating', id: 'rateme', max: 5},
+                {label: 'Greetings', id: 'freetext'}
+            ]} initialData={{rateme: 4, freetext: 'Hello'}}/>
         </div>
         <div>
-            <Button href={"#"} defaultValue={"Link"} className={["aHref","LinkTo"]} />
+            <h2>Actions</h2>
+            <div><Actions onAction={type => alert(type)} /></div>
         </div>
         <div>
-            <Button href={null} defaultValue={"Button"}  className={["buttNoHref","ButtTo"]} />
-        </div>
-        <div>
-            <h2>Suggestion</h2>
-            <Suggest options={['eenie', 'mennie', 'mine', 'mo']} />
-        </div>
-        <div>
-            <h2>Rating</h2>
-            <div>
-                No initial value: <Rating />
-            </div>
-            <div>
-                Initial value 4: <Rating defaultValue={4} />
-            </div>
-            <div>
-                This one goes to 11: <Rating max={11} />
-            </div>
-            <div>
-                Read-only: <Rating readonly={true} defaultValue={4} />
-            </div>
+            <h2>Dialog</h2>
+            <div><Dialog header="OUt-of-the-box-example" onAction={type => alert(type)} >Hello dialog!</Dialog></div>
+            <div><Dialog header="No-cancel, custom button" hasCancel={false} confirmLabel="Whatever"
+                         onAction={type => alert(type)} >Anything dose he see:<Button>A button</Button></Dialog></div>
         </div>
     </div>,
     document.getElementById('pad')

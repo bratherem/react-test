@@ -47,6 +47,15 @@
   height: 60px;
   vertical-align: middle;
   width: 100px;
+}.Rating {
+    display: inline-block;
+}
+.Rating span {
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.RatingOn {
+    color: gold;
 }html {
   background: white;
   font: 16px Arial;

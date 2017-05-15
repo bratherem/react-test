@@ -1,18 +1,26 @@
 {
   "name": "app-002",
   "version": "1.0.0",
-  "description": "Test 2",
-  "main": "js/source/app.js",
-  "scripts": {
-    "test": "print('Yes');"
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "babel", "react"
+    ],
+    "env": {
+      "browser": true
+    }
   },
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "git@github.com:bratherem/react-test.git"
   },
-  "keywords": [
-    "test-react-app-002"
-  ],
   "author": "A.Chechel",
   "license": "ISC",
   "devDependencies": {
@@ -22,5 +30,8 @@
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
+  },
+  "dependencies": {
+    "tinymce": "^4.6.1"
   }
 }

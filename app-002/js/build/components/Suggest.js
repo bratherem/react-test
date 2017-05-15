@@ -28,20 +28,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Suggest = function (_Component) {
     _inherits(Suggest, _Component);
 
-    function Suggest() {
+    function Suggest(props) {
         _classCallCheck(this, Suggest);
 
-        return _possibleConstructorReturn(this, (Suggest.__proto__ || Object.getPrototypeOf(Suggest)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Suggest.__proto__ || Object.getPrototypeOf(Suggest)).call(this, props));
+
+        _this.state = { value: props.defaultValue };
+        return _this;
     }
 
     _createClass(Suggest, [{
         key: 'getValue',
         value: function getValue() {
-            return this.refs.lowlevelinput.value;
+            return this.state.value;
         }
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var randomid = Math.random().toString(16).substr(2);
 
             return _react2.default.createElement(
@@ -50,7 +55,9 @@ var Suggest = function (_Component) {
                 _react2.default.createElement('input', {
                     list: randomid,
                     defaultValue: this.props.defaultValue,
-                    ref: 'lowlevelinput',
+                    onChange: function onChange(e) {
+                        return _this2.setState({ value: e.target.value });
+                    },
                     id: this.props.id }),
                 _react2.default.createElement(
                     'datalist',
